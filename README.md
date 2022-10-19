@@ -18,7 +18,9 @@ The issue is that this call returns up to 10 records ranked by relevance. For my
 In order to get just 1 result I added `&maximumRecords=1` to the API call. In order to make sure that record is the one with the most libraries held I added `&sortKeys=librarycount,,0`. This sorts the library count in descending order so the 1 result is the top record.
 ## Instructions
 
-1. The original spreadsheet is exported from Alma. In order for OpenRefine to read the spreadsheet, blank columns need to be deleted.
+1. The original spreadsheet is exported from an Alma search result. **In order for OpenRefine to read the spreadsheet, blank columns need to be deleted**.
+
+![alma export result](alma-screenshot.jpg)
 
 2. In OpenRefine, Add Columns by Fetching URLs and use this GREL script. I always name this column `Fetch`:
 
@@ -39,7 +41,7 @@ In order to get just 1 result I added `&maximumRecords=1` to the API call. In or
 
 These columns in Refine should look like this:
 
-![alt text](openrefine-screenshot.jpg)
+![openrefine showing columns after data is fetched and cleaned](openrefine-screenshot.jpg)
 
 6. An extracted script is available in the main directory of this repository: `extractedScript.txt`
 
