@@ -1,0 +1,356 @@
+[
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "ISBN",
+    "expression": "grel:value",
+    "onError": "set-to-blank",
+    "newColumnName": "ISBN-clean",
+    "columnInsertIndex": 13,
+    "description": "Create column ISBN-clean at index 13 based on column ISBN using expression grel:value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ISBN-clean",
+    "expression": "value.replace(\"&apos;\",\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column ISBN-clean using expression value.replace(\"&apos;\",\"\")"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "Record number",
+          "columnName": "Record number",
+          "query": "arti",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "ISBN-clean",
+          "columnName": "ISBN-clean",
+          "query": ".",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": true
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "ISBN-clean",
+          "columnName": "ISBN-clean",
+          "query": "^\\d",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": true
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "ISBN-clean",
+          "columnName": "ISBN-clean",
+          "query": "",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": true
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ISBN-clean",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column ISBN-clean using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "ISBN-clean",
+          "columnName": "ISBN-clean",
+          "query": " ",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ISBN-clean",
+    "expression": "grel:value.replace(/(^.+?)( .+)/,\"$1\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column ISBN-clean using expression grel:value.replace(/(^.+?)( .+)/,\"$1\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ISBN-clean",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column ISBN-clean using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "ISBN-clean",
+          "columnName": "ISBN-clean",
+          "query": "\\.",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ISBN-clean",
+    "expression": "grel:value.replace(/(^.+?)(\\(.+)/,\"$1\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column ISBN-clean using expression grel:value.replace(/(^.+?)(\\(.+)/,\"$1\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "ISBN-clean",
+          "columnName": "ISBN-clean",
+          "query": "\\.",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ISBN-clean",
+    "expression": "value.replace(\".\",\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column ISBN-clean using expression value.replace(\".\",\"\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "ISBN-clean",
+          "columnName": "ISBN-clean",
+          "query": ":",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ISBN-clean",
+    "expression": "value.replace(\":\",\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column ISBN-clean using expression value.replace(\":\",\"\")"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "ISBN-clean",
+          "columnName": "ISBN-clean",
+          "query": "",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "baseColumnName": "ISBN-clean",
+    "expression": "grel:value.length()",
+    "onError": "set-to-blank",
+    "newColumnName": "Length",
+    "columnInsertIndex": 14,
+    "description": "Create column Length at index 14 based on column ISBN-clean using expression grel:value.length()"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "ISBN-clean",
+          "columnName": "ISBN-clean",
+          "query": "",
+          "mode": "regex",
+          "caseSensitive": false,
+          "invert": false
+        },
+        {
+          "type": "list",
+          "name": "Length",
+          "expression": "value",
+          "columnName": "Length",
+          "invert": true,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": 13,
+                "l": "13"
+              }
+            },
+            {
+              "v": {
+                "v": 10,
+                "l": "10"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/column-addition-by-fetching-urls",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "ISBN-clean",
+    "urlExpression": "grel:\"http://www.worldcat.org/webservices/catalog/search/sru?wskey={myAPIKey}&query=srw.bn=\" \n+ value + \"&sortKeys=librarycount,,0&maximumRecords=1&recordSchema=info%3Asrw%2Fschema%2F1%2Fdc&frbrGrouping=off\"",
+    "onError": "set-to-blank",
+    "newColumnName": "Fetch",
+    "columnInsertIndex": 14,
+    "delay": 5000,
+    "cacheResponses": true,
+    "httpHeadersJson": [
+      {
+        "name": "authorization",
+        "value": ""
+      },
+      {
+        "name": "user-agent",
+        "value": "OpenRefine 3.6.1 [5fc8883]"
+      },
+      {
+        "name": "accept",
+        "value": "*/*"
+      }
+    ],
+    "description": "Create column Fetch at index 14 by fetching URLs based on column ISBN-clean using expression grel:\"http://www.worldcat.org/webservices/catalog/search/sru?wskey={myAPIKey}&query=srw.bn=\" \n+ value + \"&sortKeys=librarycount,,0&maximumRecords=1&recordSchema=info%3Asrw%2Fschema%2F1%2Fdc&frbrGrouping=off\""
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Fetch",
+    "expression": "grel:join(uniques(forEach(value.split(\"<oclcdcs>\"), v, v.partition(\"<oclcterms:recordIdentifier>\")[2].partition(\"</oclcterms:recordIdentifier>\")[0])), \",\")",
+    "onError": "set-to-blank",
+    "newColumnName": "OCLC",
+    "columnInsertIndex": 15,
+    "description": "Create column OCLC at index 15 based on column Fetch using expression grel:join(uniques(forEach(value.split(\"<oclcdcs>\"), v, v.partition(\"<oclcterms:recordIdentifier>\")[2].partition(\"</oclcterms:recordIdentifier>\")[0])), \",\")"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Fetch",
+    "expression": "grel:join(uniques(forEach(value.split(\"<oclcdcs>\"), v, v.partition(\"<dc:format>\")[2].partition(\"</dc:format>\")[0])), \",\")",
+    "onError": "set-to-blank",
+    "newColumnName": "Format",
+    "columnInsertIndex": 15,
+    "description": "Create column Format at index 15 based on column Fetch using expression grel:join(uniques(forEach(value.split(\"<oclcdcs>\"), v, v.partition(\"<dc:format>\")[2].partition(\"</dc:format>\")[0])), \",\")"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Fetch",
+    "expression": "grel:join(uniques(forEach(value.split(\"<oclcdcs>\"), v, v.partition(\"<dc:title>\")[2].partition(\"</dc:title>\")[0])), \",\")",
+    "onError": "set-to-blank",
+    "newColumnName": "Title-Fetch",
+    "columnInsertIndex": 15,
+    "description": "Create column Title-Fetch at index 15 based on column Fetch using expression grel:join(uniques(forEach(value.split(\"<oclcdcs>\"), v, v.partition(\"<dc:title>\")[2].partition(\"</dc:title>\")[0])), \",\")"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "Title-Fetch",
+    "index": 0,
+    "description": "Move column Title-Fetch to position 0"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "Title",
+    "index": 0,
+    "description": "Move column Title to position 0"
+  }
+]
