@@ -20,7 +20,7 @@ In order to get just 1 result I added `&maximumRecords=1` to the API call. In or
 
 1. The original spreadsheet is exported from an Alma search result. **In order for OpenRefine to read the spreadsheet, blank columns need to be deleted**.
 
-![alma export result](alma-screenshot.jpg)
+![alma export result](alma-screenshot.JPG)
 
 2. In OpenRefine, Add Columns by Fetching URLs and use this GREL script. I always name this column `Fetch`:
 
@@ -41,7 +41,7 @@ In order to get just 1 result I added `&maximumRecords=1` to the API call. In or
 
 These columns in Refine should look like this:
 
-![openrefine showing columns after data is fetched and cleaned](openrefine-screenshot.jpg)
+![openrefine showing columns after data is fetched and cleaned](openrefine-screenshot.JPG)
 
 6. An extracted script is available in the main directory of this repository: `extractedScript.txt`
 
